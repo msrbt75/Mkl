@@ -1,0 +1,12 @@
+# مكتبات البوت
+pyTelegramBotAPI==4.23.0
+
+# المكتبات القياسية لا تحتاج تثبيت لكنها مذكورة هنا كمرجع
+# os
+# time
+# threading
+# subprocess
+# sqlite3
+# logging
+# traceback
+# datetime
