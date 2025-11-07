@@ -1,0 +1,33 @@
+name: Telegram Bot
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *" # إعادة التشغيل كل 6 ساعات تلقائيًا
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ✅ بدء التشغيل
+        run: echo "تشغيل بوت تيليجرام..."
+
+      - name: 📥 تحميل الملفات
+        uses: actions/checkout@v3
+
+      - name: 🐍 تثبيت بايثون
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: 📦 تثبيت المكتبات المطلوبة
+        run: pip install -r requirements.txt
+
+      - name: 🚀 تشغيل البوت
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+        run: |
+          echo "✅ البوت يعمل الآن!"
+          python3 yuome.py
